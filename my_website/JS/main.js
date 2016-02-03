@@ -6,7 +6,7 @@ function initialize(){
 //function to create a table with cities and their populations
 function cities(){
     //define two arrays for cities and population
-    var cityPop = [
+  var cityPop = [
         { 
             city: 'Tokyo',
             population:  8949447
@@ -25,7 +25,7 @@ function cities(){
         }
     ];
 
-        //append the table element to the div
+    //append the table element to the div
     $("#mydiv").append("<table>");
 
     //append a header row to the table
@@ -34,78 +34,97 @@ function cities(){
     //add the "City" and "Population" columns to the header row
     $("tr").append("<th>City</th><th>Population</th>");
 
-
     //loop to add a new row for each city
     for (var i = 0; i < cityPop.length; i++){
         //assign longer html strings to a variable
         var rowHtml = "<tr><td>" + cityPop[i].city + "</td><td>" + cityPop[i].population + "</td></tr>";
+
+        addEvents();
         //add the row's html string to the table
-        $("table").append(rowHtml);
+        $('table').append(rowHtml);
     };
-//call the initialize function when the window has loaded
-$(document).ready(initialize);
-
-$.getScript("debug.js", function(){
-
-   alert("Script loaded but not necessarily executed.");
-
-});
-
-
+    addColumns(cityPop);
 };
+
+//call the initialize function when the document has loaded
+$("#mydiv").ready(initialize);
+
+
+//function to add a column saying the size of the population
 function addColumns(cityPop){
-    
+//for each table row call function    
     $('tr').each(function(i){
-
+//organize column for each type of population
         if (i == 0){
-
+//append title, City Size, to table
             $(this).append('<th>City Size</th>');
-        } else {
+            i++;
+        } 
+        else {
 
             var citySize;
-
             if (cityPop[i-1].population < 2400000){
                 citySize = 'Small';
+                
 
-            } else if (cityPop[i-1].population < 3700000){
-                citysize = 'Medium';
+            } else if (cityPop[i-1].population < 3700000){  
+                citySize = 'Medium';
+                
 
             } else {
                 citySize = 'Large';
+                
             };
-
-            $(this).append('<td' + citySize + '</td>');
+//append citySize to table
+            $(this).append('<td>' + citySize + '</td>');
         };
     });
 };
-
+//function to place a random color when you mouseover the table
 function addEvents(){
 
+//create mouseover function
     $('#table').mouseover(function(){
-        
+   //define color variable     
         var color = "rgb(";
-
-        for (var i=0; i<3; i++){
+//selects random color
+        for (var i = 0; i < 3; i++){
 
             var random = Math.round(Math.random() * 255);
 
-            color += "random";
+            color += random;
 
-            if (i<2){
-                color += ",";
+            if (i < 2){
+                color += ',';
             
             } else {
-                color += ")";
+                color += ')';
         };
 
-        $(this).css('color', color);
+        $('#mydiv').css('color', color);
     };
 });
-
-    function clickme(){
-
+//function that allows you to click elements of the table
+function clickme(){
+//initalizes the click me event
+$('#table').on('click', function(){
         alert('Hey, you clicked me!');
-    };
+    });
+    $('#table').on('click', clickme);
 
-    $('table').on('click', clickme);
 };
+};
+//initialize function called when the script loads
+function initialize(){
+    cities();
+    addEvents();
+
+
+
+};
+
+    
+    //change the text color
+//    $('#mydiv').css('color', 'blue');
+
+    
