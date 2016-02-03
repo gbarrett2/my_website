@@ -38,14 +38,11 @@ function cities(){
     for (var i = 0; i < cityPop.length; i++){
         //assign longer html strings to a variable
         var rowHtml = "<tr><td>" + cityPop[i].city + "</td><td>" + cityPop[i].population + "</td></tr>";
-
-        addEvents();
         //add the row's html string to the table
         $('table').append(rowHtml);
     };
     addColumns(cityPop);
     addEvents();
-
 };
 
 //call the initialize function when the document has loaded
@@ -87,7 +84,7 @@ function addEvents(){
 
 //create mouseover function
     $('table').mouseover(function(){
-   //define color variable     
+//define color variable     
         var color = "rgb(";
 //selects random color
         for (var i = 0; i < 3; i++){
@@ -109,24 +106,10 @@ function addEvents(){
 //function that allows you to click elements of the table
 function clickme(){
 //initalizes the click me event
-
         alert('Hey, you clicked me!');
     };
 
     $('table').on('click', clickme);
-$('table').on('click', function(){
-});
+    $('table').on('click', function(){
+    });
 };
-//initialize function called when the script loads
-//    cities();
-  //  addEvents();
-
-
-
-//};
-
-    
-    //change the text color
-//    $('#mydiv').css('color', 'blue');
-
-    
