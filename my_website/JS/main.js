@@ -8,20 +8,20 @@ function cities(){
     //define two arrays for cities and population
     var cityPop = [
         { 
-            city: 'Madison',
-            population: 233209
+            city: 'Tokyo',
+            population:  8949447
         },
         {
-            city: 'Milwaukee',
-            population: 594833
+            city: 'Yokohama',
+            population: 3689603
         },
         {
-            city: 'Green Bay',
-            population: 104057
+            city: 'Osaka',
+            population: 2666371
         },
         {
-            city: 'Superior',
-            population: 27244
+            city: 'Nagoya',
+            population: 2263907
         }
     ];
 
