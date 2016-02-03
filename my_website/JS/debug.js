@@ -12,14 +12,14 @@ function addColumns(cityPop){
     		if (cityPop[i-1].population < 2400000){
     			citySize = 'Small';
 
-    		} else if (cityPop[i-1].population < 37000){
+    		} else if (cityPop[i-1].population < 3700000){
     			citysize = 'Medium';
 
     		} else {
     			citySize = 'Large';
     		};
 
-    		$this.append('<td' + citySize + '</td>');
+    		$(this).append('<td' + citySize + '</td>');
     	};
     });
 };
@@ -44,7 +44,8 @@ function addEvents(){
 		};
 
 		$(this).css('color', color);
-	});
+	};
+});
 
 	function clickme(){
 
@@ -53,3 +54,8 @@ function addEvents(){
 
 	$('table').on('click', clickme);
 };
+
+
+
+
+
