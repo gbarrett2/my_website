@@ -44,6 +44,8 @@ function cities(){
         $('table').append(rowHtml);
     };
     addColumns(cityPop);
+    addEvents();
+
 };
 
 //call the initialize function when the document has loaded
@@ -84,7 +86,7 @@ function addColumns(cityPop){
 function addEvents(){
 
 //create mouseover function
-    $('#table').mouseover(function(){
+    $('table').mouseover(function(){
    //define color variable     
         var color = "rgb(";
 //selects random color
@@ -101,27 +103,27 @@ function addEvents(){
                 color += ')';
         };
 
-        $('#mydiv').css('color', color);
+        $(this).css('color', color);
     };
 });
 //function that allows you to click elements of the table
 function clickme(){
 //initalizes the click me event
-$('#table').on('click', function(){
-        alert('Hey, you clicked me!');
-    });
-    $('#table').on('click', clickme);
 
-};
+        alert('Hey, you clicked me!');
+    };
+
+    $('table').on('click', clickme);
+$('table').on('click', function(){
+});
 };
 //initialize function called when the script loads
-function initialize(){
-    cities();
-    addEvents();
+//    cities();
+  //  addEvents();
 
 
 
-};
+//};
 
     
     //change the text color
