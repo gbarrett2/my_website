@@ -4,15 +4,15 @@ function addColumns(cityPop){
 
     	if (i == 0){
 
-    		$(this).apend('<th>City Size</th>');
+    		$(this).append('<th>City Size</th>');
     	} else {
 
     		var citySize;
 
-    		if (cityPop[i-1].population < 100000){
+    		if (cityPop[i-1].population < 2400000){
     			citySize = 'Small';
 
-    		} else if (cityPop[i-1].population < 500000){
+    		} else if (cityPop[i-1].population < 37000){
     			citysize = 'Medium';
 
     		} else {

@@ -25,7 +25,7 @@ function cities(){
         }
     ];
 
-    //append the table element to the div
+        //append the table element to the div
     $("#mydiv").append("<table>");
 
     //append a header row to the table
@@ -33,6 +33,7 @@ function cities(){
 
     //add the "City" and "Population" columns to the header row
     $("tr").append("<th>City</th><th>Population</th>");
+
 
     //loop to add a new row for each city
     for (var i = 0; i < cityPop.length; i++){
@@ -42,34 +43,39 @@ function cities(){
         $("table").append(rowHtml);
     };
 
+$.getScript("debug.js", function(){
+
+   alert("Script loaded but not necessarily executed.");
+
+});
+
 
 };
 
-//call the initialize function when the document has loaded
+//call the initialize function when the window has loaded
 $(document).ready(initialize);
-
 function addColumns(cityPop){
     
     $('tr').each(function(i){
 
         if (i == 0){
 
-            $(this).apend('<th>City Size</th>');
+            $(this).append('<th>City Size</th>');
         } else {
 
             var citySize;
 
-            if (cityPop[i-1].population < 100000){
+            if (cityPop[i-1].population < 2400000){
                 citySize = 'Small';
 
-            } else if (cityPop[i-1].population < 500000){
+            } else if (cityPop[i-1].population < 370000){
                 citysize = 'Medium';
 
             } else {
                 citySize = 'Large';
             };
 
-            $this.append('<td' + citySize + '</td>');
+            $(this).append('<td' + citySize + '</td>');
         };
     });
 };
@@ -94,7 +100,7 @@ function addEvents(){
         };
 
         $(this).css('color', color);
-    });
+    };
 
     function clickme(){
 
@@ -102,4 +108,13 @@ function addEvents(){
     };
 
     $('table').on('click', clickme);
-};
+});
+
+
+
+
+
+
+
+
+
