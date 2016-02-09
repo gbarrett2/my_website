@@ -7,7 +7,7 @@ function initialize(){
 function cities(){
     //define two arrays for cities and population
   var cityPop = [
-        { 
+        {
             city: 'Tokyo',
             population:  8949447
         },
@@ -51,28 +51,28 @@ $("#mydiv").ready(initialize);
 
 //function to add a column saying the size of the population
 function addColumns(cityPop){
-//for each table row call function    
+//for each table row call function
     $('tr').each(function(i){
 //organize column for each type of population
         if (i == 0){
 //append title, City Size, to table
             $(this).append('<th>City Size</th>');
             i++;
-        } 
+        }
         else {
 
             var citySize;
             if (cityPop[i-1].population < 2400000){
                 citySize = 'Small';
-                
 
-            } else if (cityPop[i-1].population < 3700000){  
+
+            } else if (cityPop[i-1].population < 3700000){
                 citySize = 'Medium';
-                
+
 
             } else {
                 citySize = 'Large';
-                
+
             };
 //append citySize to table
             $(this).append('<td>' + citySize + '</td>');
@@ -84,7 +84,7 @@ function addEvents(){
 
 //create mouseover function
     $('table').mouseover(function(){
-//define color variable     
+//define color variable
         var color = "rgb(";
 //selects random color
         for (var i = 0; i < 3; i++){
@@ -95,7 +95,7 @@ function addEvents(){
 
             if (i < 2){
                 color += ',';
-            
+
             } else {
                 color += ')';
         };
