@@ -43,6 +43,9 @@ function cities(){
     };
     addColumns(cityPop);
     addEvents();
+    //calls functions
+    debugAjax();
+    debugCallback();
 };
 
 //call the initialize function when the document has loaded
@@ -114,56 +117,23 @@ function clickme(){
     });
 };
 
-
+//function that calls the ajax method
 function debugCallback(response){
-
-	$(mydiv).append('GeoJSON data: ' + JSON.stringify(mydata));
+//views response
+	$(mydiv).append('GeoJSON data: ' + JSON.stringify(response));
 };
-
+//defines the Ajax function
 function debugAjax(){
 
-	var mydata;
-
-	$.ajax("data/MegaCities.geojson", {
+//basic jQuery ajax method
+	$.ajax("data/MegaCity.geojson", {
 		dataType: "json",
-		success: function(response){
-
-			debugCallback(mydata);
+		success: function(response, status, jpXHRobject){
+      debugCallback(response);
+      //views response
+      $(mydiv).append('<br>GeoJSON data:<br>' + JSON.stringify(response));
 		}
 	});
-
-	$(mydiv).append('<br>GeoJSON data:<br>' + JSON.stringify(mydata));
 };
-
-//$(mydiv).append('GeoJSON data: ' + JSON.stringify(mydata));
-
-
-function jsAjax(){
-    // Step 1: Create the request
-    var ajaxRequest = new XMLHttpRequest();
-
-    //Step 2: Create an event handler to send received data to a callback function
-    ajaxRequest.onreadystatechange = function(){
-        if (ajaxRequest.readyState === 4){
-            callback(ajaxRequest.response);
-        };
-    };
-
-    //Step 3: Open the server connection
-    ajaxRequest.open('GET', 'data/MegaCities.geojson', true);
-
-    //Step 4: Set the response data type
-    ajaxRequest.responseType = "json";
-
-    //Step 5: Send the request
-    ajaxRequest.send();
-};
-
-//define callback function
-function callback(response){
-    //tasks using the data go here
-    //
-    console.log(response);
-};
-
-window.onload = jsAjax();
+//views repsonse
+$(mydiv).append('GeoJSON data: ' + JSON.stringify(response));
